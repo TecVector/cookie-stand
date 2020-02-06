@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
+body {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: darksalmon;
+    background-color: #000000;
+}
+
+div {
+    background-color: darkolivegreen;
+}
+
+table {
+    background-color: darkseagreen;
+}
+
+nav {
+    background-color: #ff90ff;
+}
+
+nav ul {
+    display: inline-block;
+    list-style-type: none;
+}
+
+nav li {
+    color: blue;
+    display: inline-block;
+}
+
+.custom-highlights {
+    font-family: 'Raleway', sans-serif;
+    color: darkslateblue;
+}
+
+.data-text {
+    font-family: Arial, Helvetica, sans-serif;
+    color: grey;
+}
+
+.center-text {
+    text-align: center;
+}
+
+.center-image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.fixed-element {
+    position: fixed;
+    top: 80px;
+    margin: 0;
+    right: 0;
+}
+
+.fixed-element div:first-of-type {
+    padding: 15px;
+    border-radius: 25% 0 0 25%;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(-10deg);
+    }
+    50% {
+        transform: rotate(10deg);
+    }
+    100% {
+        transform: rotate(-10deg);
+    }
+}
+
+#fishy-logo {
+    animation-name: rotate;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
