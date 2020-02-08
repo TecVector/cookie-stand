@@ -1,4 +1,6 @@
 var shops = [];
+var storeOpen = 6;
+var storeClose = 19;
 
 function shop(name, min, max, avg) {
     this.name = name;
@@ -9,8 +11,8 @@ function shop(name, min, max, avg) {
     this.dailyTotals = 0;
     this.setCookiesByHour = function() {
         var setDailyTotals = 0;
-        for (var x = 6; x <= 19; x++) {
-            var customersInStore = getRandomCustomers(this.max, this.min);
+        for (var x = storeOpen; x <= storeClose; x++) {
+            var customersInStore = (Math.floor(Math.random() * 10) * (this.max - this.min)) + this.min;
             var cookiesSold = Math.floor(customersInStore * this.avg);
             var timeOfDay = getTimeOfDay(x);
             this.cookiesByHour.push([timeOfDay, cookiesSold]);
@@ -19,16 +21,6 @@ function shop(name, min, max, avg) {
     }
 };
 
-var seattle = new shop('Seattle', 23, 65, 6.3); //.setCookiesByHour();
-var tokyo = new shop('Tokyo', 3, 24, 1.2); //.setCookiesByHour();
-var dubai = new shop('Dubai', 11, 38, 3.7); //.setCookiesByHour();
-var paris = new shop('Paris', 20, 38, 2.3); //.setCookiesByHour();
-var lima = new shop('Lima', 2, 16, 4.6); //.setCookiesByHour();
-
-function getRandomCustomers(max, min) {
-    var randomness = Math.floor(Math.random() * 10);
-    return (randomness * (max - min)) + min;
-}
 
 function getTimeOfDay(dayHours) {
     if (dayHours < 12) {
@@ -40,12 +32,18 @@ function getTimeOfDay(dayHours) {
     }
 }
 
+var seattle = new shop('Seattle', 23, 65, 6.3);
+var tokyo = new shop('Tokyo', 3, 24, 1.2);
+var dubai = new shop('Dubai', 11, 38, 3.7);
+var paris = new shop('Paris', 20, 38, 2.3);
+var lima = new shop('Lima', 2, 16, 4.6);
+
 shops.push(seattle);
 shops.push(tokyo);
 shops.push(dubai);
 shops.push(paris);
 shops.push(lima);
-console.log(shops);
+
 for (var x = 0; x < shops.length; x++) {
     shops[x].setCookiesByHour();
     var parent = document.getElementById('parentSalesHolder');
