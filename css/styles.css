@@ -11,6 +11,17 @@ div {
 
 table {
     background-color: darkseagreen;
+    color: #292524;
+}
+
+.sales-table th,
+td {
+    padding: 10px;
+}
+
+.sales-table td {
+    border: 1px solid black;
+    padding: 10px;
 }
 
 nav {
